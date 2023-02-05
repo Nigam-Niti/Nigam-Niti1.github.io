@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style type='text/css'>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+
+    body {
+        background-image: url('https://i.pinimg.com/originals/7b/b8/a1/7bb8a1c2902ef64ebd058249a369de5e.jpg');
+        background-repeat: no-repeat;
+        position: relative;
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 40px;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+    }
+
+    table {
+        border: 1px;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 86%;
+        margin: auto;
+    }
+
+    td,
+    th {
+        border: 1px solid black !important;
+        /* padding: 5px; */
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    /* div {
+display: flex;
+justify-content: center;
+} */
+
+</style>
+
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>AI Based Attendance System</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<!-- <meta charset="utf-8"> -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+   <style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=button] {
+  /* width: 10%;
+  padding: 2px;
+  border-radius: 2px;
+  resize: vertical;
+  float: left; */
+
+  background-color:#0F52BB;
+  color: white;
+  padding: 12px 12px 12px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: inherit;
+  width: 250px;
+}
+
+input[type=file] {
+  width: 25%;
+  padding: 12px;
+  border-radius: 10px;
+  resize: vertical;
+  float: left;
+}
+
+/* input[type=email], select, textarea {
+  width: 60%;
+  padding: 12px 12px 12px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+} */
+label {
+  padding: 12px 12px 12px 10px;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color:#0F52BA;
+  color: white;
+  padding: 12px 12px 12px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: inherit;
+  width: 250px;
+}
+
+input[type=submit]:hover {
+  background-color: #0F52BA;
+  padding: 12px 12px 12px 12px;
+  width: 250px;
+}
+
+/* .container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+} */
+
+.col-25 {
+  float: left;
+  width: 20%;
+  /* margin-top: 6px; */
+}
+
+/* .col-75 {
+  float: right;
+  width: 20%;
+  margin-top: 6px;
+} */
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 300px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 60%;
+    margin-top: 0;
+  }
+  .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  border: 3px solid green;
+}
+}
+  * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+
+    body {
+        background-image: url('https://i.pinimg.com/originals/7b/b8/a1/7bb8a1c2902ef64ebd058249a369de5e.jpg');
+        background-repeat: no-repeat;
+        position: relative;
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 40px;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    table {
+        border: 1px;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 86%;
+        margin: auto;
+    }
+
+    td,
+    th {
+        border: 1px solid black !important;
+        /* padding: 5px; */
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>AI Based Attendance Management System</title>
+
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<title>HTML input type file</title>
+  
+  <base target="_top">
+	<!--CSS code-->
+	<style>
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .column {
+  float: left;
+  width: 15.00%;
+  padding: 5px;
+ 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+		/* h1 {
+			color: green;
+		}
+
+		h2,
+		h3 {
+			font-family: Impact;
+		}
+
+		/* body {
+			text-align: center;
+		} */ */
+	</style>
+<script>
+   function view(){
+    alert("You can view atteandance within few hours.");
+     window.top.location.href = 'https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=upload';
+  }
+  function gotolink(){
+			window.open("https://aiattendance.github.io/");}
+		</script>
+    <script>
+function myFunction(){
+    // google.script.run.upload(this.parentNode)
+    document.getElementById('pid').innerHTML = "Upload successfully";
+}
+</script>
+<script>
+  
+  function LoadFile(event)
+  {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      console.log(e.target.result);
+      var fileData = e.target.result.substr(e.target.result.indexOf(",")+1);
+      var mimeTypeStart = e.target.result.indexOf("data:") + 5;
+      var mimeTypeEnd = e.target.result.indexOf(";");
+      var mimeType = e.target.result.substr(mimeTypeStart, mimeTypeEnd - mimeTypeStart);
+      var fileName = file.name;
+      document.getElementById("fileData").value = fileData;
+      document.getElementById("mimeType").value = mimeType;
+      document.getElementById("fileName").value = fileName;
+    };    
+    reader.readAsDataURL(file);
+  }
+   function LoadFile1(event)
+  {
+    var file1 = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      console.log(e.target.result);
+      var fileData1 = e.target.result.substr(e.target.result.indexOf(",")+1);
+      var mimeTypeStart1 = e.target.result.indexOf("data:") + 5;
+      var mimeTypeEnd1 = e.target.result.indexOf(";");
+      var mimeType1 = e.target.result.substr(mimeTypeStart1, mimeTypeEnd1- mimeTypeStart1);
+      var fileName1 = file1.name;
+      document.getElementById("fileData1").value = fileData1;
+      document.getElementById("mimeType1").value = mimeType1;
+      document.getElementById("fileName1").value = fileName1;
+    };    
+    reader.readAsDataURL(file1);
+  }
+  
+  function LoadFile3(event)
+  {
+    var file3 = event.target.files[0];
+    var reader = new FileReader();
+    // alert("LoadFile3")
+    reader.onload = function(e) {
+      console.log(e.target.result);
+      var fileData3 = e.target.result.substr(e.target.result.indexOf(",")+1);
+      var mimeTypeStart3 = e.target.result.indexOf("data:") + 5;
+      var mimeTypeEnd3 = e.target.result.indexOf(";");
+      var mimeType3 = e.target.result.substr(mimeTypeStart3, mimeTypeEnd3 - mimeTypeStart3);
+      var fileName3 = file3.name;
+      document.getElementById("fileData3").value = fileData3;
+      document.getElementById("mimeType3").value = mimeType3;
+      document.getElementById("fileName3").value = fileName3;
+    };    
+    reader.readAsDataURL(file3);
+  }
+   function LoadFile4(event)
+  {
+    var file4 = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      console.log(e.target.result);
+      var fileData4 = e.target.result.substr(e.target.result.indexOf(",")+1);
+      var mimeTypeStart4 = e.target.result.indexOf("data:") + 5;
+      var mimeTypeEnd4 = e.target.result.indexOf(";");
+      var mimeType4 = e.target.result.substr(mimeTypeStart4, mimeTypeEnd4- mimeTypeStart4);
+      var fileName4 = file4.name;
+      document.getElementById("fileData4").value = fileData4;
+      document.getElementById("mimeType4").value = mimeType4;
+      document.getElementById("fileName4").value = fileName4;
+    };    
+    reader.readAsDataURL(file4);
+  }
+
+  function LoadFile5(event)
+  {
+    var file5 = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      console.log(e.target.result);
+      var fileData5 = e.target.result.substr(e.target.result.indexOf(",")+1);
+      var mimeTypeStart5 = e.target.result.indexOf("data:") + 5;
+      var mimeTypeEnd5 = e.target.result.indexOf(";");
+      var mimeType5 = e.target.result.substr(mimeTypeStart5, mimeTypeEnd5 - mimeTypeStart5);
+      var fileName5= file5.name;
+      document.getElementById("fileData5").value = fileData5;
+      document.getElementById("mimeType5").value = mimeType5;
+      document.getElementById("fileName5").value = fileName5;
+    };    
+    reader.readAsDataURL(file5);
+  }
+   function LoadFile6(event)
+  {
+    var file6 = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      console.log(e.target.result);
+      var fileData6 = e.target.result.substr(e.target.result.indexOf(",")+1);
+      var mimeTypeStart6 = e.target.result.indexOf("data:") + 5;
+      var mimeTypeEnd6 = e.target.result.indexOf(";");
+      var mimeType6 = e.target.result.substr(mimeTypeStart6, mimeTypeEnd6- mimeTypeStart6);
+      var fileName6 = file6.name;
+      document.getElementById("fileData6").value = fileData6;
+      document.getElementById("mimeType6").value = mimeType6;
+      document.getElementById("fileName6").value = fileName6;
+    };    
+    reader.readAsDataURL(file6);
+  }
+
+  function LoadFile8(event)
+  {
+    var file8 = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      console.log(e.target.result);
+      var fileData8 = e.target.result.substr(e.target.result.indexOf(",")+1);
+      var mimeTypeStart8 = e.target.result.indexOf("data:") + 5;
+      var mimeTypeEnd8 = e.target.result.indexOf(";");
+      var mimeType8 = e.target.result.substr(mimeTypeStart8, mimeTypeEnd8   - mimeTypeStart8);
+      var fileName8 = file8.name;
+      document.getElementById("fileData8").value = fileData8;
+      document.getElementById("mimeType8").value = mimeType8;
+      document.getElementById("fileName8").value = fileName8;
+    };    
+    reader.readAsDataURL(file8);
+  }
+
+  function LoadFile7(event)
+  {
+    var file7 = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      console.log(e.target.result);
+      var fileData7 = e.target.result.substr(e.target.result.indexOf(",")+1);
+      var mimeTypeStart7 = e.target.result.indexOf("data:") + 5;
+      var mimeTypeEnd7 = e.target.result.indexOf(";");
+      var mimeType7 = e.target.result.substr(mimeTypeStart7, mimeTypeEnd7- mimeTypeStart7);
+      var fileName7 = file7.name;
+      document.getElementById("fileData7").value = fileData7;
+      document.getElementById("mimeType7").value = mimeType7;
+      document.getElementById("fileName7").value = fileName7;
+    };    
+    reader.readAsDataURL(file7);
+  }
+
+
+  function gotolink(){
+			window.top.location.href("https://aiattendance.github.io/");}
+		</script>
+<script>
+  function gotolink1(){
+		window.top.location.href = 'https://drive.google.com/drive/folders/1iehWSC3jFtNofH375XHtCGnO0HsoBNKv?usp=share_link';}
+		</script>
+</head>
+
+<body>
+<header>
+  <div class='mt-3 text-center'>
+    <h1 style="width: auto;margin: auto;color: white;padding: 11px;font-size: 35px;">One-Click Automatic Attendance For Hybrid Class</h1>
+     <h3 style="width: auto;margin: auto;color: white;padding: 11px;font-size: 28px;">IIT (BHU) Varanasi</h3></div>
+  <nav class="navbar-expand-sm bg-primary navbar-light bg-light">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+  <!-- <nav class="navbar navbar-default navbar-expand-lg"> -->
+  <div class="container-fluid">
+
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec">Home</a></li>
+
+          <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=faculty">Faculty registration</a></li>
+          <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=UploadFile">Student registration</a></li>
+
+          <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=login">Upload attendance</a></li>
+
+          <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=studentlog">Verify attendance</a></li>
+
+    </ul>
+  </div>
+</nav></header>
+<br>
+  <?var url = getUrl();?>
+<div class="row text-center" style="padding: 10px;margin: 10px;">
+  <div class="container">
+  <div class="col"
+            style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;height: 500px;">
+
+                <h2 style="border-radius: 20px 20px 0px 0px;background-color: #0F52BA; color: white;padding: 10px;">Please Upload Class Photographs<i class="material-icons">assignment</i></h2>
+<div id="page1">
+      <!-- <?var url = getUrl();?> -->
+     <div> 
+  <form method="post" action="<?= url ?>" name="myForm2" id="myForm2">
+         <div class="row">
+    <div class="column">
+   <label for="date">Date</label>  
+    <input type="date" id="date" name="date" placeholder="Date">
+    </div>
+    
+    <div class="column">
+    <label for="stime">Start Time</label> 
+    <select id="stime" name="stime">
+      <option value="08:00 AM">08:00 AM</option>
+      <option value="09:00 AM">09:00 AM</option>
+      <option value="10:00 AM">10:00 AM</option>
+      <option value="11:00 AM">11:00 AM</option>
+      <option value="12:00 AM">12:00 AM</option>
+      <option value="01:00 PM">01:00 PM</option>
+      <option value="02:00 PM">02:00 PM</option>
+      <option value="03:00 PM">03:00 PM</option>
+      <option value="04:00 PM">04:00 PM</option>
+      <option value="05:00 PM">05:00 PM</option>
+      <option value="06:00 PM">06:00 PM</option>
+
+    </select></div>
+
+    <div class="column">
+    <label for="etime">End Time</label> 
+    <select id="etime" name="etime">
+      <option value="09:00 AM">09:00 AM</option>
+      <option value="10:00 AM">10:00 AM</option>
+      <option value="11:00 AM">11:00 AM</option>
+      <option value="12:00 AM">12:00 AM</option>
+      <option value="01:00 PM">01:00 PM</option>
+      <option value="02:00 PM">02:00 PM</option>
+      <option value="03:00 PM">03:00 PM</option>
+      <option value="04:00 PM">04:00 PM</option>
+      <option value="05:00 PM">05:00 PM</option>
+      <option value="06:00 PM">06:00 PM</option>
+      <option value="07:00 PM">07:00 PM</option>
+
+
+
+    </select></div>
+    <div class="column">
+   <label for="cid">Course Id</label>
+    <input type="text" id="cid" name="cid">
+    </div>
+    
+    <div class="column">
+   <label for="code">Class Code</label>
+    <input type="text" id="code" name="code">
+    </div>
+    
+    </div>
+      <div class="col-25">  
+      <label> Choose the Image1*: </label></div>
+      <input type="file" id="imageFile1" name="file" onchange="LoadFile(event)"/> 
+      <input type="hidden" id="fileData" name="fileData" />
+      <input type="hidden" id="mimeType" name="mimeType" />
+      <input type="hidden" id="fileName" name="fileName" />
+    <!-- <br /><br /> -->
+      <div class="col-25"> <label> Choose the Image2: </label></div>
+      <input type="file"  id="imageFile2" name="file1" onchange="LoadFile1(event)"/> 
+      <input type="hidden" id="fileData1" name="fileData1" />
+      <input type="hidden" id="mimeType1" name="mimeType1" />
+      <input type="hidden" id="fileName1" name="fileName1" />
+    <!-- <br /><br /> -->
+      <div class="col-25"> <label> Choose the Image3: </label></div>
+      <input type="file"  id="imageFile3" name="file3" onchange="LoadFile3(event)"/> 
+      <input type="hidden" id="fileData3" name="fileData3" />
+      <input type="hidden" id="mimeType3" name="mimeType3" />
+      <input type="hidden" id="fileName3" name="fileName3" />
+    <!-- <br /><br /> -->
+     <div class="col-25">  <label> Choose the Image4: </label> </div>
+      <input type="file"  id="imageFile4" name="file4" onchange="LoadFile4(event)"/> 
+      <input type="hidden" id="fileData4" name="fileData4" />
+      <input type="hidden" id="mimeType4" name="mimeType4" />
+      <input type="hidden" id="fileName4" name="fileName4" />
+    <!-- <br /><br /> -->
+      <div class="col-25"> <label> Choose the Image5: </label> </div>
+      <input type="file"  id="imageFile5" name="file5" onchange="LoadFile5(event)"/> 
+      <input type="hidden" id="fileData5" name="fileData5" />
+      <input type="hidden" id="mimeType5" name="mimeType5" />
+      <input type="hidden" id="fileName5" name="fileName5" />
+    <!-- <br /><br /> -->
+      <div class="col-25"> <label> Choose the Image6: </label></div>
+      <input type="file"  id="imageFile6" name="file6" onchange="LoadFile6(event)"/> 
+      <input type="hidden" id="fileData6" name="fileData6" />
+      <input type="hidden" id="mimeType6" name="mimeType6" />
+      <input type="hidden" id="fileName6" name="fileName6" />
+
+      <div class="col-25"> <label> Choose the Image7: </label> </div>
+      <input type="file"  id="imageFile7" name="file7" onchange="LoadFile7(event)"/> 
+      <input type="hidden" id="fileData7" name="fileData7" />
+      <input type="hidden" id="mimeType7" name="mimeType7" />
+      <input type="hidden" id="fileName7" name="fileName7" />
+    <!-- <br /><br /> -->
+      <div class="col-25"> <label> Choose the Image8: </label></div>
+      <input type="file"  id="imageFile8" name="file8" onchange="LoadFile8(event)"/> 
+      <input type="hidden" id="fileData8" name="fileData8" />
+      <input type="hidden" id="mimeType8" name="mimeType8" />
+      <input type="hidden" id="fileName8" name="fileName8" />
+
+     <input type="hidden" id="value" name="value" value="form2">
+     <input type="submit"  value="Submit" /> 
+     <br><br><br>
+     <!-- <input type="button" value="Verify students" onclick="<?=url?>?page=home"/>
+     <input type="button"  value="View Attendance" onclick="<?=url?>?page=home"/> 
+     <input type="button" value="Download Attendance"onclick="<?=url?>?page=home"/> -->
+     <!-- <?var url = getScriptUrl();?><a href="<?=url?>?page=home"><input type="button" value="Verify students"></a> -->
+     <input type="button" onclick="gotolink();" value="View Attendance">
+    <!-- <a href="https://aiattendance.github.io/"><input type="button" value="View Attendance"></a> -->
+
+     <?var url = getScriptUrl();?><a href="<?=url?>?page=upload"><input type="button" value="Download Attendance"></a>
+     </div></div></div></div>
+</form>
+
+<!-- <div id="page2">
+</div>
+<div id="page3">
+</div> -->
+</body>
+</html>
